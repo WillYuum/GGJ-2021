@@ -958,30 +958,12 @@ MonoBehaviour:
   selectionArea: {fileID: 2040771748}
   allActors: []
   selectedActors: []
---- !u!1 &765485839 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 42722370648019113, guid: 9d8f59db68b19b74382d412787cd9175,
-    type: 3}
-  m_PrefabInstance: {fileID: 42722371006657446}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &765485840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 42722370648019126, guid: 9d8f59db68b19b74382d412787cd9175,
     type: 3}
   m_PrefabInstance: {fileID: 42722371006657446}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &765485841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765485839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e906aa0ce402f8446942b5dbadaba20d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &797000105
 GameObject:
   m_ObjectHideFlags: 0
