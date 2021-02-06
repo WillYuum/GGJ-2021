@@ -22,6 +22,8 @@ public class Skeleton : Actor
 
     private void LateUpdate()
     {
+        if(selectedObjectToAttack == null) return;
+        
         float distToAttackableObject = Vector3.Distance(transform.position, selectedObjectToAttack.transform.position);
         if (distToAttackableObject <= agent.stoppingDistance)
         {
@@ -47,6 +49,7 @@ public class Skeleton : Actor
     {
         float minDistance = Mathf.Infinity;
         GameObject nearestPirate = null;
+        print(ActorManager.instance.allActors.Count);
         ActorManager.instance.allActors.ForEach(pirate =>
         {
             float distanceToPirate = Vector3.Distance(transform.position, pirate.transform.position);

@@ -36,7 +36,7 @@ public class Actor : MonoBehaviour
 
     public void Update()
     {
-        animator.SetFloat("Speed", Mathf.Clamp(agent.velocity.magnitude, 0, 1));
+        // animator.SetFloat("Speed", Mathf.Clamp(agent.velocity.magnitude, 0, 1));
     }
 
     public void SetDestination(Vector3 destination)

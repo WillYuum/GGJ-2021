@@ -28,17 +28,20 @@ public class ActorManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-
-    void Start()
-    {
         mainCamera = Camera.main;
         foreach (Actor actor in GetComponentsInChildren<Actor>())
         {
             allActors.Add(actor);
         }
+        print("Check all actors count" + allActors.Count);
         selectionArea.gameObject.SetActive(false);
+    }
+
+
+    void Start()
+    {
+
     }
 
     void Update()
