@@ -11,37 +11,54 @@ public class Skeleton : Actor
     public float damageInflictOnPirate = 5;
     private float hitRate = 2.0f;
     private float timeToNextHit = 0;
-    private void Awake()
+
+    //Removeing this creates issues
+    void Awake()
     {
     }
 
-    private void Start()
+    void Start()
     {
         PickNearestPirate();
     }
 
     private void LateUpdate()
     {
-        if(selectedObjectToAttack == null) return;
-        
-        float distToAttackableObject = Vector3.Distance(transform.position, selectedObjectToAttack.transform.position);
-        if (distToAttackableObject <= agent.stoppingDistance)
-        {
-            isMovingTowardAttackableObject = false;
-            if (Time.time > timeToNextHit)
-            {
-                timeToNextHit = Time.time + hitRate;
-                if (selectedObjectToAttack.TryGetComponent(out Damageable damageable))
-                {
-                    print("hitting pirate");
-                    damageable.Hit(damageInflictOnPirate);
-                }
-            }
-        }
-        else if (isMovingTowardAttackableObject == false)
-        {
-            PickNearestPirate();
-        }
+        // if (selectedObjectToAttack == null)
+        // {
+        //     PickNearestPirate();
+        // }
+        // else
+        // {
+        //     float distToAttackableObject = Vector3.Distance(transform.position, selectedObjectToAttack.transform.position);
+        //     if (distToAttackableObject <= agent.stoppingDistance)
+        //     {
+        //         isMovingTowardAttackableObject = false;
+        //         if (Time.time > timeToNextHit)
+        //         {
+        //             timeToNextHit = Time.time + hitRate;
+        //             if (selectedObjectToAttack.TryGetComponent(out Damageable damageable))
+        //             {
+        //                 print("hitting pirate");
+        //                 damageable.Hit(damageInflictOnPirate);
+        //             }
+        //         }
+        //     }
+        // else if (isMovingTowardAttackableObject == false)
+        // {
+        //     PickNearestPirate();
+        //     selectedObjectToAttack = null;
+        // }
+
+        // }
+
+    }
+
+    private void GoToDigSite()
+    {
+        //When skeleton spawned this method should be called
+
+        //If skeleton gets close to opponent change destination and goal to attack
     }
 
 
