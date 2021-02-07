@@ -59,11 +59,11 @@ public class BuildingUI : MonoBehaviour
     }
 
 
-
-
+    public TextMeshProUGUI[] resourcesIndicatorsUI;
     public void RefreshResources()
     {
-        // for (int i = 0; i < resourceGroup.childCount; i++)
-        //     resourceGroup.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text = BuildingManager.instance.currentResources[i].ToString();
+        int count = resourcesIndicatorsUI.Length;
+        for (int i = 0; i < count; i++)
+            resourcesIndicatorsUI[i].text = BuildingManager.instance.currentResources[i].ToString();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-public enum ResourceType { Wood }
+public enum ResourceType { Wood, Rock }
 public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager instance;
@@ -28,7 +28,7 @@ public class BuildingManager : MonoBehaviour
 
     private void Start()
     {
-        currentResources = new int[] { 0 };
+        currentResources = new int[] { 0, 0 };
         ui = FindObjectOfType<BuildingUI>();
         if (ui)
             ui.RefreshResources();
