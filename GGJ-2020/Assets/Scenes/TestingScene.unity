@@ -1991,49 +1991,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceGroup: {fileID: 0}
   buildingPreviewMat: {fileID: 2100000, guid: f861f05b0b13b7f4e872e81a7cbb5c82, type: 2}
---- !u!1 &1852524592 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2471906984064309583, guid: 8817dea1b9186c94594f660c690c657c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6070874554483351403}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1852524594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852524592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c151e7c522ef4254598802d69787dd27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footStepEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  attackEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!95 &1852524595
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852524592}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 080945c46afd34f3ebc364c1696e6678, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8bcb93c54bdd0b64bb7a125884c68837, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1870019793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,49 +2224,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2012963064 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5550146523066601865, guid: 5bc9c899f2a40fe42ad98b3183153ba4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3585274446425298230}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2012963066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012963064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c151e7c522ef4254598802d69787dd27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footStepEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  attackEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!95 &2012963067
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012963064}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 080945c46afd34f3ebc364c1696e6678, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8bcb93c54bdd0b64bb7a125884c68837, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2040771744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,49 +2303,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2077374902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4115449144661223451, guid: d62ca4c62b7fab9499709d618eb1882b,
-    type: 3}
-  m_PrefabInstance: {fileID: 5186021624638598254}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2077374904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077374902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c151e7c522ef4254598802d69787dd27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footStepEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  attackEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!95 &2077374905
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077374902}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 080945c46afd34f3ebc364c1696e6678, type: 3}
-  m_Controller: {fileID: 9100000, guid: 8bcb93c54bdd0b64bb7a125884c68837, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &2081448855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5186021623630893049, guid: d62ca4c62b7fab9499709d618eb1882b,
@@ -2604,10 +2475,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 745441579}
     m_Modifications:
-    - target: {fileID: 919312860, guid: 5bc9c899f2a40fe42ad98b3183153ba4, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3585274446348755138, guid: 5bc9c899f2a40fe42ad98b3183153ba4,
         type: 3}
       propertyPath: m_Name
@@ -2668,8 +2535,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2012963065, guid: 5bc9c899f2a40fe42ad98b3183153ba4, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc9c899f2a40fe42ad98b3183153ba4, type: 3}
 --- !u!1001 &5186021624638598254
 PrefabInstance:
@@ -2678,10 +2544,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 745441579}
     m_Modifications:
-    - target: {fileID: 526780517, guid: d62ca4c62b7fab9499709d618eb1882b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5186021623630893049, guid: d62ca4c62b7fab9499709d618eb1882b,
         type: 3}
       propertyPath: m_RootOrder
@@ -2742,8 +2604,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pirate2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2077374903, guid: d62ca4c62b7fab9499709d618eb1882b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d62ca4c62b7fab9499709d618eb1882b, type: 3}
 --- !u!1001 &6070874554483351403
 PrefabInstance:
@@ -2752,10 +2613,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 745441579}
     m_Modifications:
-    - target: {fileID: 1794655892, guid: 8817dea1b9186c94594f660c690c657c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6070874555433075883, guid: 8817dea1b9186c94594f660c690c657c,
         type: 3}
       propertyPath: m_Name
@@ -2816,6 +2673,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1852524593, guid: 8817dea1b9186c94594f660c690c657c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8817dea1b9186c94594f660c690c657c, type: 3}

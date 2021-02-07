@@ -88,8 +88,9 @@ MonoBehaviour:
   agent: {fileID: 0}
   damageable: {fileID: 0}
   damageableTarget: {fileID: 0}
-  visualHandler: {fileID: 0}
+  animator: {fileID: 0}
   animationEvent: {fileID: 0}
+  visualHandler: {fileID: 0}
   isHover: 0
 --- !u!114 &3585274446348755149
 MonoBehaviour:
@@ -118,14 +119,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3585274446348755138}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbe26ee185cf0e240bd1b7a9ccf9ce41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectedSprite: {fileID: 3508741967462932445}
   destroyParticle: {fileID: 0}
---- !u!114 &2012963065
+--- !u!95 &2012963067
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550146523066601865}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 080945c46afd34f3ebc364c1696e6678, type: 3}
+  m_Controller: {fileID: 9100000, guid: 8bcb93c54bdd0b64bb7a125884c68837, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2012963066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
