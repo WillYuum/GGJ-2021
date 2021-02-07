@@ -2321,16 +2321,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DigSite
       objectReference: {fileID: 0}
-    - target: {fileID: 42722370648019113, guid: 9d8f59db68b19b74382d412787cd9175,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 42722370648019113, guid: 9d8f59db68b19b74382d412787cd9175,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 42722370648019126, guid: 9d8f59db68b19b74382d412787cd9175,
         type: 3}
       propertyPath: m_RootOrder
@@ -2385,11 +2375,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 889089379967820290, guid: 9d8f59db68b19b74382d412787cd9175,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d8f59db68b19b74382d412787cd9175, type: 3}

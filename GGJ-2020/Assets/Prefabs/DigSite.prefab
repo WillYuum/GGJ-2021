@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 42722370648019126}
   - component: {fileID: 765485841}
   - component: {fileID: 519615404}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DigSite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
