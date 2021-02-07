@@ -87,6 +87,33 @@ public class Actor : MonoBehaviour
         }
     }
 
+    public void InteractWithDigSite(DigSite target)
+    {
+        StopTask();
+        Debug.Log("Going to dig site");
+        currentTask = StartCoroutine(StartInterAct());
+        IEnumerator StartInterAct()
+        {
+            Vector3 jobPosition = target.transform.position;
+            Vector2 randomPosition = Random.insideUnitCircle.normalized * 4;
+            jobPosition.x += randomPosition.x;
+            jobPosition.z += randomPosition.y;
+            SetDestination(jobPosition);
+            yield return WaitForNavMesh();
+            StartInterActWithDigSite(target);
+        }
+    }
+
+    public virtual void StartInterActWithDigSite(DigSite digSite)
+    {
+
+    }
+
+
+    // public void ActOnDigSite(){
+    //     stop
+    // }
+
     public virtual void StopTask()
     {
         damageableTarget = null;

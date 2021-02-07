@@ -8,6 +8,8 @@ public class Pirate : Actor
 
     Building currentBuilding;
 
+    DigSite currentSiteDigging;
+
     private void Start()
     {
 
@@ -71,4 +73,34 @@ public class Pirate : Actor
         if (currentBuilding)
             currentBuilding.Build(10);
     }
+
+
+    public override void StartInterActWithDigSite(DigSite digSite)
+    {
+        if (currentTask != null)
+            StopCoroutine(currentTask);
+        currentSiteDigging = digSite;
+        currentTask = StartCoroutine(StartJob());
+        IEnumerator StartJob()
+        {
+            while (!currentSiteDigging.DigSiteIsFinished())
+            {
+                //NOTE: Should add dig delay
+                yield return new WaitForSeconds(1);
+                if (!currentSiteDigging.DigSiteIsFinished())
+                {
+                    //Animation was supposed to invoke AttackEvent
+                    // animator.SetTrigger("Attack");
+                    // animationEvent.AttackEvent();
+                    currentSiteDigging.DoDig(1);
+                }
+            }
+
+            currentTask = null;
+        }
+
+    }
+
+
+
 }

@@ -51,9 +51,9 @@ public class BuildingManager : MonoBehaviour
         {
             if (actor is Pirate)
             {
-                Pirate builder = actor as Pirate;
-                if (!builder.HasTask())
-                    builder.GiveJob(building);
+                Pirate pirate = actor as Pirate;
+                if (!pirate.HasTask())
+                    pirate.GiveJob(building);
             }
         }
 

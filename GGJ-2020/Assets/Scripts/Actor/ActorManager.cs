@@ -138,8 +138,9 @@ public class ActorManager : MonoBehaviour
 
     void SetTask()
     {
-        Debug.Log("Setting task");
         if (selectedActors.Count == 0) return;
+
+        Debug.Log("Setting task");
 
         Collider collider = Utils.CameraRay().collider;
 
@@ -151,12 +152,26 @@ public class ActorManager : MonoBehaviour
                 actor.SetDestination(Utils.MouseToTerrainPosition());
             }
         }
-        else if (!collider.TryGetComponent(out Damageable damageable))
+        else if (collider.TryGetComponent(out Damageable damageable))
         {
+            Debug.Log("Trying to damage");
             foreach (Actor actor in selectedActors)
             {
                 actor.AttackTarget(damageable);
             }
+        }
+        else if (collider.TryGetComponent(out DigSite digSite))
+        {
+            Debug.Log("It worked");
+            foreach (Actor actor in selectedActors)
+            {
+                // interactable.Interact();
+                actor.InteractWithDigSite(digSite);
+            }
+        }
+        else
+        {
+            Debug.Log("No task was set");
         }
 
     }
