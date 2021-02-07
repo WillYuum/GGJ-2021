@@ -77,7 +77,8 @@ public class Actor : MonoBehaviour
                     yield return new WaitForSeconds(1);
                     if (damageableTarget)
                     {
-                        animator.SetTrigger("Attack");
+                        // animator.SetTrigger("Attack");
+                        animationEvent.AttackEvent();
                     }
                 }
 
