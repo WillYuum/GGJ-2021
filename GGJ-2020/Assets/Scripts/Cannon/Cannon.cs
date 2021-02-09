@@ -32,9 +32,10 @@ public class Cannon : MonoBehaviour
             if (Time.time > timeTillNextShot)
             {
                 timeTillNextShot = Time.time + fireRate;
-                bool isAimOnEnemy = Vector3.Dot(transform.forward, dirToEnemy.normalized) >= 0.9f;
 
-                if (isAimOnEnemy)
+                bool isFacingEnemy = Vector3.Dot(transform.forward, dirToEnemy.normalized) >= 0.9f;
+
+                if (isFacingEnemy)
                 {
                     Shoot();
                 }
