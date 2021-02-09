@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558421983}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0, y: 0.66, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3695290749483308975}
@@ -131,9 +131,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3695290749483308975}
   - component: {fileID: 190414341646753145}
+  - component: {fileID: 6887343598268315712}
   - component: {fileID: 919132148078723522}
   - component: {fileID: 538468418}
-  - component: {fileID: 6887343598268315712}
   m_Layer: 0
   m_Name: cannon
   m_TagString: Untagged
@@ -170,7 +170,35 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &6887343598268315712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4036245574965333269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c9c53a273e61943ad82f96fc04f19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingName: Cannon
+  height: 1
+  radius: 5
+  totalWorkToComplete: 100
+  resourceCost: 
+  buildingTransform: {fileID: 6141971095044868758}
+  attackable: {fileID: 0}
+  isHover: 0
+  done: 0
+  stateColors: []
+  buildIsDone:
+    m_PersistentCalls:
+      m_Calls: []
+  allMeshForm:
+  - {fileID: 3847443853297527394}
+  - {fileID: 8011474449019588662}
 --- !u!114 &919132148078723522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,30 +235,6 @@ MonoBehaviour:
       m_Calls: []
   startingHealth: 100
   currentHealth: 0
---- !u!114 &6887343598268315712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4036245574965333269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c9c53a273e61943ad82f96fc04f19e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingName: Cannon
-  height: 0.4
-  radius: 5
-  totalWorkToComplete: 100
-  resourceCost: 
-  buildingTransform: {fileID: 6141971095044868758}
-  attackable: {fileID: 0}
-  isHover: 0
-  stateColors: []
-  allMeshForm:
-  - {fileID: 3847443853297527394}
-  - {fileID: 8011474449019588662}
 --- !u!1 &6511152095020550530
 GameObject:
   m_ObjectHideFlags: 0

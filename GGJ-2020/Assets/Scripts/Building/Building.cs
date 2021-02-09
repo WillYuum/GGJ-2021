@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
+
 public class Building : MonoBehaviour
 {
     public string buildingName;
@@ -12,13 +14,15 @@ public class Building : MonoBehaviour
     public Transform buildingTransform;
     [HideInInspector] public Damageable attackable;
     public bool isHover = false;
-    private bool done;
+    [HideInInspector] public bool done;
     [SerializeField] private Color[] stateColors;
 
     MeshRenderer buildingRender;
 
     Cinemachine.CinemachineImpulseSource impulse;
 
+
+    [HideInInspector] public UnityEvent buildIsDone = new UnityEvent();
 
     public MeshFilter[] allMeshForm;
     private void Awake()
@@ -50,12 +54,16 @@ public class Building : MonoBehaviour
     public bool IsFinished()
     {
         Debug.Log("Progress: " + currentWork);
-        if (currentWork >= totalWorkToComplete && !done && buildingRender)
+        if (currentWork >= totalWorkToComplete && !done)
         {
             done = true;
-            buildingRender.material.DOColor(stateColors[1], "_EmissionColor", .1f).OnComplete(() => buildingRender.material.DOColor(stateColors[0], "_EmissionColor", .5f));
+            buildIsDone.Invoke();
+            Debug.LogWarning("Ran invoke");
+            // buildingRender.material.DOColor(stateColors[1], "_EmissionColor", .1f).OnComplete(() => buildingRender.material.DOColor(stateColors[0], "_EmissionColor", .5f));
             if (impulse)
                 impulse.GenerateImpulse();
+
+            return true;
         }
         return currentWork >= totalWorkToComplete;
     }

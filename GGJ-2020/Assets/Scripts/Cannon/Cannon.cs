@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Cannon : Building
+public class Cannon : MonoBehaviour
 {
 
     public Transform firePoint;
@@ -11,10 +11,19 @@ public class Cannon : Building
     [SerializeField] private CannonRange shootRangeComp;
     private float secondsTillDestroyBullet = 5.0f;
 
+    private Building buildingComponent;
+
+    void Start()
+    {
+        buildingComponent = gameObject.GetComponent<Building>();
+        buildingComponent.buildIsDone.AddListener(shootRangeComp.StartCannonToAim);
+    }
 
 
     void Update()
     {
+        if (buildingComponent.done == false) return;
+
         AimAndShoot();
     }
 

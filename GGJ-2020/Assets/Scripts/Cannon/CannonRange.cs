@@ -13,6 +13,11 @@ public class CannonRange : MonoBehaviour
     void Start()
     {
         parentCannon = transform.parent.gameObject;
+    }
+
+    public void StartCannonToAim()
+    {
+        Debug.LogWarning("Cannon started aiming");
         StartCoroutine("UpdateTarget");
     }
 
