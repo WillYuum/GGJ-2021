@@ -19,6 +19,8 @@ public class Building : MonoBehaviour
 
     Cinemachine.CinemachineImpulseSource impulse;
 
+
+    public MeshFilter[] allMeshForm;
     private void Awake()
     {
         attackable = gameObject.GetComponent<Damageable>();
@@ -89,7 +91,7 @@ public class Building : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Cannon : MonoBehaviour
+public class Cannon : Building
 {
 
     public Transform firePoint;

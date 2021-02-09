@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +11,7 @@ public class BuildingUI : MonoBehaviour
     int currentIndex = 0;
     public Transform resourceGroup;
 
-    Mesh buildingPreviewMesh;
+    List<Mesh> buildingPreviewMesh = new List<Mesh>();
     [SerializeField] Material buildingPreviewMat;
 
 
@@ -37,7 +39,11 @@ public class BuildingUI : MonoBehaviour
         if (isPlacing)
         {
             Vector3 position = Utils.MouseToTerrainPosition();
-            Graphics.DrawMesh(buildingPreviewMesh, position, Quaternion.identity, buildingPreviewMat, 0);
+            foreach (Mesh item in buildingPreviewMesh)
+            {
+                Graphics.DrawMesh(item, position, Quaternion.identity, buildingPreviewMat, 0);
+            }
+            // Graphics.DrawMesh(buildingPreviewMesh, position, Quaternion.identity, buildingPreviewMat, 0);
             if (Input.GetMouseButtonDown(0))
             {
                 BuildingManager.instance.SpawnBuilding(currentIndex, position);
@@ -53,8 +59,14 @@ public class BuildingUI : MonoBehaviour
         currentIndex = index;
         ActorManager.instance.DeselectActors();
         // canvasGroup.alpha = 0;
+        buildingPreviewMesh.Clear();
         isPlacing = true;
-        buildingPreviewMesh = BuildingManager.instance.GetPrefab(index).GetComponentInChildren<MeshFilter>().sharedMesh;
+        MeshFilter[] x = BuildingManager.instance.GetPrefab(index).GetComponent<Building>().allMeshForm;
+        foreach (MeshFilter item in x)
+        {
+            // buildingPreviewMesh.
+            buildingPreviewMesh.Add(item.sharedMesh);
+        }
 
     }
 
