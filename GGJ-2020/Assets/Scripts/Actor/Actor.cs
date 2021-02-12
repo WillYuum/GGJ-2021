@@ -34,10 +34,10 @@ public class Actor : MonoBehaviour
         isResource = gameObject.GetComponent<Resource>() ? true : false;
     }
 
-    public void Update()
-    {
-        // animator.SetFloat("Speed", Mathf.Clamp(agent.velocity.magnitude, 0, 1));
-    }
+    // public void Update()
+    // {
+    //     // animator.SetFloat("Speed", Mathf.Clamp(agent.velocity.magnitude, 0, 1));
+    // }
 
     public void SetDestination(Vector3 destination)
     {

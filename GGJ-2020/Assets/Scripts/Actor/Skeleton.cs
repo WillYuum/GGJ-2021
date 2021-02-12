@@ -12,6 +12,11 @@ public class Skeleton : Actor
     private float hitRate = 2.0f;
     private float timeToNextHit = 0;
 
+    private bool selectedDestination = false;
+
+    private GameObject objectToAttack;
+    private bool isAttacking = false;
+
     //Removeing this creates issues
     void Awake()
     {
@@ -22,8 +27,36 @@ public class Skeleton : Actor
         PickNearestPirate();
     }
 
-    private void LateUpdate()
+    void Update()
     {
+        // print("hi");
+        if (isAttacking)
+        {
+            //Get close to objective
+
+            if (Time.time > timeToNextHit)
+            {
+                timeToNextHit = Time.time + hitRate;
+
+                //HIT!!
+            }
+
+        }
+        else
+        {
+            if (selectedDestination == false)
+            {
+                PickNearestPirate();
+            }
+            else
+            {
+                print(agent.remainingDistance);
+                if (agent.remainingDistance <= 5)
+                {
+                    selectedDestination = false;
+                }
+            }
+        }
         // if (selectedObjectToAttack == null)
         // {
         //     PickNearestPirate();
@@ -66,7 +99,7 @@ public class Skeleton : Actor
     {
         float minDistance = Mathf.Infinity;
         GameObject nearestPirate = null;
-        print(ActorManager.instance.allActors.Count);
+
         ActorManager.instance.allActors.ForEach(pirate =>
         {
             float distanceToPirate = Vector3.Distance(transform.position, pirate.transform.position);
@@ -82,6 +115,7 @@ public class Skeleton : Actor
         {
             isMovingTowardAttackableObject = true;
             SetDestination(nearestPirate.transform.position);
+            selectedDestination = true;
         }
         else
         {
