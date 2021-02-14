@@ -17,6 +17,8 @@ public class Skeleton : Actor
     private GameObject objectToAttack;
     private bool isAttacking = false;
 
+
+    public bool shouldNotAttack = false;
     //Removeing this creates issues
     void Awake()
     {
@@ -28,6 +30,13 @@ public class Skeleton : Actor
     }
 
     void Update()
+    {
+        if (shouldNotAttack) return;
+        HandleStartAttacking();
+    }
+
+
+    private void HandleStartAttacking()
     {
         // print("hi");
         if (isAttacking)
@@ -57,46 +66,12 @@ public class Skeleton : Actor
                 }
             }
         }
-        // if (selectedObjectToAttack == null)
-        // {
-        //     PickNearestPirate();
-        // }
-        // else
-        // {
-        //     float distToAttackableObject = Vector3.Distance(transform.position, selectedObjectToAttack.transform.position);
-        //     if (distToAttackableObject <= agent.stoppingDistance)
-        //     {
-        //         isMovingTowardAttackableObject = false;
-        //         if (Time.time > timeToNextHit)
-        //         {
-        //             timeToNextHit = Time.time + hitRate;
-        //             if (selectedObjectToAttack.TryGetComponent(out Damageable damageable))
-        //             {
-        //                 print("hitting pirate");
-        //                 damageable.Hit(damageInflictOnPirate);
-        //             }
-        //         }
-        //     }
-        // else if (isMovingTowardAttackableObject == false)
-        // {
-        //     PickNearestPirate();
-        //     selectedObjectToAttack = null;
-        // }
-
-        // }
-
     }
-
-    private void GoToDigSite()
-    {
-        //When skeleton spawned this method should be called
-
-        //If skeleton gets close to opponent change destination and goal to attack
-    }
-
 
     private void PickNearestPirate()
     {
+        if (shouldNotAttack) return;
+
         float minDistance = Mathf.Infinity;
         GameObject nearestPirate = null;
 
