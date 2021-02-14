@@ -18,13 +18,14 @@ public class CannonRange : MonoBehaviour
     public void StartCannonToAim()
     {
         Debug.LogWarning("Cannon started aiming");
-        StartCoroutine("UpdateTarget");
+        StartCoroutine(UpdateTarget());
     }
 
 
     private IEnumerator UpdateTarget()
     {
-        yield return new WaitForSeconds(updateTargetDelay);
+        yield return new WaitForSeconds(1);
+        print("Enemies Count: " + enemiesInRange.Count);
         if (enemiesInRange.Count > 0)
         {
             SelectTarget();
@@ -38,19 +39,33 @@ public class CannonRange : MonoBehaviour
 
         enemiesInRange.ForEach(enemy =>
        {
-           float distanceToEnemy = Vector3.Distance(parentCannon.transform.position, enemy.transform.position);
-           if (distanceToEnemy < minDistance)
+           if (enemy == null)
            {
-               minDistance = distanceToEnemy;
-               nearestEnemy = enemy;
-           }
+               bool isRemoved = enemiesInRange.Remove(enemy);
+               if (isRemoved == false)
+               {
+                   Debug.LogError("Enemy in range wasn't removed in cannon range");
+               }
 
-           if (nearestEnemy != null)
+           }
+           else
            {
-               currentSelectedEnemy = nearestEnemy;
-           }
+               float distanceToEnemy = Vector3.Distance(parentCannon.transform.position, enemy.transform.position);
+               if (distanceToEnemy < minDistance)
+               {
+                   minDistance = distanceToEnemy;
+                   nearestEnemy = enemy;
+               }
 
+               if (nearestEnemy != null)
+               {
+                   currentSelectedEnemy = nearestEnemy;
+                   Debug.Log("Cannon: Selected new enemy target " + currentSelectedEnemy.name);
+               }
+           }
        });
+
+        StartCoroutine(UpdateTarget());
     }
 
 
