@@ -100,6 +100,13 @@ public class ActorManager : MonoBehaviour
                 SetTask();
             }
         }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            if (selectedActors.Count > 0)
+            {
+                DeselectActors();
+            }
+        }
 
     }
 
