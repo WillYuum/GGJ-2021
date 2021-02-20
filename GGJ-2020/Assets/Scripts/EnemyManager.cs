@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -37,7 +36,6 @@ public class EnemyManager : MonoBehaviour
     {
         GameObject enemy = SpawnManager.instance.GetEnemy();
         int randIndex = Random.Range(0, spawnPoints.Length - 1);
-        print("Check here: " + randIndex);
         Transform selectPositionToSpawn = spawnPoints[randIndex].transform;
         enemy.transform.position = selectPositionToSpawn.position;
     }
