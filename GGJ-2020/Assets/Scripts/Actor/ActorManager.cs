@@ -165,6 +165,15 @@ public class ActorManager : MonoBehaviour
     {
         if (selectedActors.Count == 0) return;
 
+        foreach (Actor actor in selectedActors)
+        {
+            if (actor.isDoingTask)
+            {
+                actor.StopAllTasks();
+            }
+            actor.isDoingTask = true;
+        }
+
         Debug.Log("Setting task");
 
         Collider collider = Utils.CameraRay().collider;

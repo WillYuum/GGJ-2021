@@ -17,6 +17,8 @@ public class Actor : MonoBehaviour
     [HideInInspector] public Coroutine currentTask;
 
     public bool isHover = false;
+
+    public bool isDoingTask = false;
     bool isResource;
 
 
@@ -81,7 +83,6 @@ public class Actor : MonoBehaviour
                         animationEvent.AttackEvent();
                     }
                 }
-
             }
 
             currentTask = null;
@@ -114,6 +115,12 @@ public class Actor : MonoBehaviour
     // public void ActOnDigSite(){
     //     stop
     // }
+
+    public void StopAllTasks()
+    {
+        isDoingTask = false;
+        StopAllCoroutines();
+    }
 
     public virtual void StopTask()
     {
