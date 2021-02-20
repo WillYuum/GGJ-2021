@@ -59,7 +59,6 @@ public class Skeleton : Actor
             }
             else
             {
-                print(agent.remainingDistance);
                 if (agent.remainingDistance <= 5)
                 {
                     selectedDestination = false;
