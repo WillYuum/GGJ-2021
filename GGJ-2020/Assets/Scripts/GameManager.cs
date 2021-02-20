@@ -30,13 +30,13 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         GameManager.instance.gameIsOn = true;
-        WaitForSeconds(5);
+        DelayToStart(15);
         StartCoroutine(EnemyManager.instance.StartSpawnEnemiesRandomly());
     }
 
-    private WaitForSeconds WaitForSeconds(int v)
+    private WaitForSeconds DelayToStart(int v)
     {
-        return new WaitForSeconds(5);
+        return new WaitForSeconds(v);
     }
 
     public void ExitGame()
