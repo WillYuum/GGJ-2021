@@ -12,8 +12,13 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject[] spawnPoints;
 
+    //---------Delay to spawn enemies--------
+    public float startingDelayToSpawnEnemy = 8;
+    public float startingDelayToSpawnRandomEnemy = 15;
     private float delayToSpawnEnemy = 2;
     private float delayToSpawnRandomEnemy = 8;
+    //-------------------------------------------
+
 
     private void Awake()
     {
@@ -28,22 +33,37 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    void Update()
+    void Start()
     {
-        // if (Input.GetKeyUp(KeyCode.E))
-        // {
-        //     SpawnEnemy();
-        // }
+        delayToSpawnEnemy = startingDelayToSpawnEnemy;
+        delayToSpawnRandomEnemy = startingDelayToSpawnRandomEnemy;
     }
 
 
     public IEnumerator StartSpawningEnemiesOnDigSite()
     {
+        int amountToSpawn = 5;
+        int amountSpawned = 0;
+
+        delayToSpawnRandomEnemy *= 2;
         while (GameManager.instance.gameIsOn)
         {
             yield return new WaitForSeconds(delayToSpawnEnemy);
+            amountSpawned += 1;
+            if (amountToSpawn == amountSpawned)
+            {
+                StopCoroutine(StartSpawningEnemiesOnDigSite());
+            }
+
+            //Write logic to spawn around dig site
             // SpawnEnemy();
         }
+    }
+
+    public void StopSpawningEnemiesOnDigSite()
+    {
+        StopCoroutine(StartSpawningEnemiesOnDigSite());
+        delayToSpawnRandomEnemy = startingDelayToSpawnRandomEnemy;
     }
 
 
