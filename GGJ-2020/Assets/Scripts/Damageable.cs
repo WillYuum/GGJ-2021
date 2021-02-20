@@ -29,6 +29,7 @@ public class Damageable : MonoBehaviour
 
     void DestroyGameObject()
     {
+        print("Destroyed: " + gameObject.name);
         onDestroy.Invoke();
         Destroy(gameObject);
     }

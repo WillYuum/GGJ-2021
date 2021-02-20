@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,22 @@ public class GameManager : MonoBehaviour
     }
 
 
+    void Start()
+    {
+        StartGame();
+    }
+
+    public void StartGame()
+    {
+        GameManager.instance.gameIsOn = true;
+        WaitForSeconds(5);
+        StartCoroutine(EnemyManager.instance.StartSpawnEnemiesRandomly());
+    }
+
+    private WaitForSeconds WaitForSeconds(int v)
+    {
+        return new WaitForSeconds(5);
+    }
 
     public void ExitGame()
     {
