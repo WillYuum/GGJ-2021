@@ -97,7 +97,19 @@ public class ActorManager : MonoBehaviour
             }
             else
             {
-                SetTask();
+                if (selectedActors.Count == 0)
+                {
+                    print("Tring to select one character");
+                    Collider collider = Utils.CameraRay().collider;
+                    if (collider.TryGetComponent(out Actor actor))
+                    {
+                        SelectOneActor(actor);
+                    }
+                }
+                else
+                {
+                    SetTask();
+                }
             }
         }
         else if (Input.GetMouseButtonUp(1))
@@ -125,6 +137,12 @@ public class ActorManager : MonoBehaviour
                 actor.visualHandler.Select();
             }
         }
+    }
+
+    void SelectOneActor(Actor actor)
+    {
+        selectedActors.Add(actor);
+        actor.visualHandler.Select();
     }
 
     public void DeselectActors()
