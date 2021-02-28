@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -13,22 +13,45 @@ public class DigSite : MonoBehaviour
 
     public bool isDigged = false;
 
+    public GameObject drillMachine;
+
+    public bool isDigging = false;
+
+    public float drillMachineRotSpeed = 280;
+    void Start()
+    {
+        drillMachine.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (isDigging)
+        {
+            drillMachine.transform.Rotate(new Vector3(0, drillMachineRotSpeed * Time.deltaTime, 0), Space.World);
+        }
+    }
+
     public void StartDigging()
     {
+        if (isDigging) return;
+
         print("Digging has Started");
+        isDigging = true;
         StartCoroutine(EnemyManager.instance.StartSpawningEnemiesOnDigSite());
         StartCoroutine(Dig());
+        drillMachine.SetActive(true);
 
     }
+
     public IEnumerator Dig()
     {
         while (GameManager.instance.gameIsOn)
         {
             if (currentDigDone >= totalProgress)
             {
-                DigSiteIsFinished();
                 EnemyManager.instance.StopSpawningEnemiesOnDigSite();
                 StopCoroutine(Dig());
+                DigSiteIsFinished();
             }
 
             yield return new WaitForSeconds(delayToMakeProgress);
@@ -42,6 +65,7 @@ public class DigSite : MonoBehaviour
     public void DigSiteIsFinished()
     {
         isDigged = true;
+        isDigging = false;
     }
 
     private void OnMouseEnter()
