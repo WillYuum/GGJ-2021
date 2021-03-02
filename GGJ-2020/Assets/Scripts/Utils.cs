@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Utils : MonoBehaviour
 {
@@ -15,5 +16,49 @@ public class Utils : MonoBehaviour
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit info, 100))
             return info;
         return new RaycastHit();
+    }
+
+    public static void ShuffleList<T>(List<T> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            T tmp = list[i];
+            int randIndex = Random.Range(i, list.Count);  //By replacing 'i' with 0, you might get a more randomized array.
+            list[i] = list[randIndex];
+            list[randIndex] = tmp;
+        }
+    }
+
+}
+
+public class PseudoRandomArray<T>
+{
+    private int counter = 0;
+    public List<T> items = new List<T>();
+
+    public PseudoRandomArray(List<T> r_items, bool shuffle = false)
+    {
+        items = r_items;
+        counter = 0;
+
+        if (shuffle)
+        {
+            Utils.ShuffleList<T>(items);
+        }
+    }
+
+
+    public T PickNext()
+    {
+        T selectedItem = items[counter];
+        counter += 1;
+
+        if (counter >= items.Count)
+        {
+            counter = 0;
+            Utils.ShuffleList<T>(items);
+        }
+
+        return selectedItem;
     }
 }
