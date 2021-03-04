@@ -43,20 +43,34 @@ public class PseudoRandomArray<T>
 
         if (shuffle)
         {
-            Utils.ShuffleList<T>(items);
+            randomList();
         }
     }
 
+    private void randomList()
+    {
+        System.Random randomizer = new System.Random();
+        for (int i = items.Count - 1; i > 0; i--)
+        {
+            T tmp = items[i];
+            int randIndex = randomizer.Next(i, items.Count);  //By replacing 'i' with 0, you might get a more randomized array.
+            items[i] = items[randIndex];
+            items[randIndex] = tmp;
+        }
+
+    }
 
     public T PickNext()
     {
+        Debug.Log("Counter!!! " + counter);
+
         T selectedItem = items[counter];
         counter += 1;
 
         if (counter >= items.Count)
         {
             counter = 0;
-            Utils.ShuffleList<T>(items);
+            randomList();
         }
 
         return selectedItem;
