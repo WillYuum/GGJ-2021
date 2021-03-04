@@ -48,21 +48,19 @@ public class EnemyManager : MonoBehaviour
 
         Vector3 digSitePos = digSite.transform.position;
 
-        List<Vector3> allSpawnPoints = new List<Vector3>();
+        List<Vector3> pickedSpawnPoints = new List<Vector3>();
 
         int selectedAmountSpawnPoints = amountOfSpawnPoints.PickNext();
 
         for (int i = 0; i < selectedAmountSpawnPoints; i++)
         {
-            float radius = Random.Range(10, 35);
+            float radius = Random.Range(25, 55);
             Vector3 newPos = GetRandomPosAroundDigSite(digSite.transform.position, radius);
-            allSpawnPoints.Add(newPos);
-            // allSpawnPoints.Add(positionToSpawn);
+            pickedSpawnPoints.Add(newPos);
         }
 
-        PseudoRandomArray<Vector3> positionToSpawn = new PseudoRandomArray<Vector3>(allSpawnPoints, true);
+        PseudoRandomArray<Vector3> positionToSpawn = new PseudoRandomArray<Vector3>(pickedSpawnPoints, true);
 
-        delayToSpawnRandomEnemy *= 2;
         while (GameManager.instance.gameIsOn)
         {
             yield return new WaitForSeconds(delayToSpawnEnemy);
@@ -71,10 +69,13 @@ public class EnemyManager : MonoBehaviour
             {
                 StopCoroutine(StartSpawningEnemiesOnDigSite(digSite));
             }
+            else
+            {
+                Vector3 selectedPostionToSpawn = positionToSpawn.PickNext();
+                SpawnEnemy(selectedPostionToSpawn);
+                print("Spawned dig site enemy");
+            }
 
-            Vector3 selectedPostionToSpawn = positionToSpawn.PickNext();
-            SpawnEnemy(selectedPostionToSpawn);
-            print("Spawned dig site enemy");
         }
     }
 
