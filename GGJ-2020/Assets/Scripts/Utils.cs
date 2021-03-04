@@ -31,23 +31,23 @@ public class Utils : MonoBehaviour
 
 }
 
-public class PseudoRandomArray<T>
+public class PseudoRandomList<T>
 {
     private int counter = 0;
     public List<T> items = new List<T>();
 
-    public PseudoRandomArray(List<T> r_items, bool shuffle = false)
+    public PseudoRandomList(List<T> r_items, bool shuffle = false)
     {
         items = r_items;
         counter = 0;
 
         if (shuffle)
         {
-            randomList();
+            ShuffleList();
         }
     }
 
-    private void randomList()
+    private void ShuffleList()
     {
         System.Random randomizer = new System.Random();
         for (int i = items.Count - 1; i > 0; i--)
@@ -70,7 +70,7 @@ public class PseudoRandomArray<T>
         if (counter >= items.Count)
         {
             counter = 0;
-            randomList();
+            ShuffleList();
         }
 
         return selectedItem;

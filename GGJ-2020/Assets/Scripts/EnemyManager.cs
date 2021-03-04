@@ -39,7 +39,7 @@ public class EnemyManager : MonoBehaviour
         delayToSpawnRandomEnemy = startingDelayToSpawnRandomEnemy;
     }
 
-    private PseudoRandomArray<int> amountOfSpawnPoints = new PseudoRandomArray<int>(new List<int>() { 3, 4, 5, 6 }, true);
+    private PseudoRandomList<int> amountOfSpawnPoints = new PseudoRandomList<int>(new List<int>() { 3, 4, 5, 6 }, true);
 
     public IEnumerator StartSpawningEnemiesOnDigSite(DigSite digSite)
     {
@@ -59,7 +59,7 @@ public class EnemyManager : MonoBehaviour
             pickedSpawnPoints.Add(newPos);
         }
 
-        PseudoRandomArray<Vector3> positionToSpawn = new PseudoRandomArray<Vector3>(pickedSpawnPoints, true);
+        PseudoRandomList<Vector3> positionToSpawn = new PseudoRandomList<Vector3>(pickedSpawnPoints, true);
 
         while (GameManager.instance.gameIsOn)
         {
