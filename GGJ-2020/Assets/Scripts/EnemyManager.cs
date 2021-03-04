@@ -13,10 +13,10 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] spawnPoints;
 
     //---------Delay to spawn enemies--------
-    public float startingDelayToSpawnEnemy = 8;
-    public float startingDelayToSpawnRandomEnemy = 15;
-    private float delayToSpawnEnemy = 2;
-    private float delayToSpawnRandomEnemy = 8;
+    private float startingDelayToSpawnEnemy = 3;
+    private float startingDelayToSpawnRandomEnemy = 15;
+    private float delayToSpawnEnemy;
+    private float delayToSpawnRandomEnemy;
     //-------------------------------------------
 
 
@@ -39,30 +39,60 @@ public class EnemyManager : MonoBehaviour
         delayToSpawnRandomEnemy = startingDelayToSpawnRandomEnemy;
     }
 
+    private PseudoRandomArray<int> amountOfSpawnPoints = new PseudoRandomArray<int>(new List<int>() { 3, 4, 5, 6 }, true);
 
-    public IEnumerator StartSpawningEnemiesOnDigSite()
+    public IEnumerator StartSpawningEnemiesOnDigSite(DigSite digSite)
     {
-        int amountToSpawn = 5;
-        int amountSpawned = 0;
+        int amountOfEnemyToSpawn = 5;
+        int amountEnemySpawned = 0;
+
+        Vector3 digSitePos = digSite.transform.position;
+
+        List<Vector3> allSpawnPoints = new List<Vector3>();
+
+        int selectedAmountSpawnPoints = amountOfSpawnPoints.PickNext();
+
+        for (int i = 0; i < selectedAmountSpawnPoints; i++)
+        {
+            float radius = Random.Range(10, 35);
+            Vector3 newPos = GetRandomPosAroundDigSite(digSite.transform.position, radius);
+            allSpawnPoints.Add(newPos);
+            // allSpawnPoints.Add(positionToSpawn);
+        }
+
+        PseudoRandomArray<Vector3> positionToSpawn = new PseudoRandomArray<Vector3>(allSpawnPoints, true);
 
         delayToSpawnRandomEnemy *= 2;
         while (GameManager.instance.gameIsOn)
         {
             yield return new WaitForSeconds(delayToSpawnEnemy);
-            amountSpawned += 1;
-            if (amountToSpawn == amountSpawned)
+            amountEnemySpawned += 1;
+            if (amountOfEnemyToSpawn == amountEnemySpawned)
             {
-                StopCoroutine(StartSpawningEnemiesOnDigSite());
+                StopCoroutine(StartSpawningEnemiesOnDigSite(digSite));
             }
 
-            //Write logic to spawn around dig site
-            // SpawnEnemy();
+            Vector3 selectedPostionToSpawn = positionToSpawn.PickNext();
+            SpawnEnemy(selectedPostionToSpawn);
+            print("Spawned dig site enemy");
         }
     }
 
-    public void StopSpawningEnemiesOnDigSite()
+    private Vector3 GetRandomPosAroundDigSite(Vector3 center, float radius)
     {
-        StopCoroutine(StartSpawningEnemiesOnDigSite());
+        //ENHANCE: Can traverse through 360 degrees to make sure to 
+        //spawn all around the center.
+        float ang = Random.value * 360;
+        Vector3 newPos;
+        newPos.x = center.x + radius * Mathf.Sin(ang * Mathf.Rad2Deg);
+        newPos.y = 0;
+        newPos.z = center.z + radius * Mathf.Cos(ang * Mathf.Rad2Deg);
+        return newPos;
+    }
+
+    public void StopSpawningEnemiesOnDigSite(DigSite digSite)
+    {
+        StopCoroutine(StartSpawningEnemiesOnDigSite(digSite));
         delayToSpawnRandomEnemy = startingDelayToSpawnRandomEnemy;
     }
 

@@ -37,7 +37,7 @@ public class DigSite : MonoBehaviour
 
         print("Digging has Started");
         isDigging = true;
-        StartCoroutine(EnemyManager.instance.StartSpawningEnemiesOnDigSite());
+        StartCoroutine(EnemyManager.instance.StartSpawningEnemiesOnDigSite(this));
         StartCoroutine(Dig());
         drillMachine.SetActive(true);
 
@@ -49,7 +49,7 @@ public class DigSite : MonoBehaviour
         {
             if (currentDigDone >= totalProgress)
             {
-                EnemyManager.instance.StopSpawningEnemiesOnDigSite();
+                EnemyManager.instance.StopSpawningEnemiesOnDigSite(this);
                 StopCoroutine(Dig());
                 DigSiteIsFinished();
             }

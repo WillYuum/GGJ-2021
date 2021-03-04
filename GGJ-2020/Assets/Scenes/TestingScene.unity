@@ -922,8 +922,6 @@ MonoBehaviour:
   - {fileID: 1028396104}
   - {fileID: 285979464}
   - {fileID: 1505031385}
-  startingDelayToSpawnEnemy: 8
-  startingDelayToSpawnRandomEnemy: 15
 --- !u!4 &462751900
 Transform:
   m_ObjectHideFlags: 0
@@ -973,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fc378f6b726a94ab5ea6e768cc70a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomLimits: {x: 4, y: 14}
+  zoomLimits: {x: 4, y: 30}
   cameraSpeed: 12
 --- !u!4 &578907369
 Transform:
@@ -4490,6 +4488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582672882704905759, guid: 9d8f59db68b19b74382d412787cd9175,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d8f59db68b19b74382d412787cd9175, type: 3}
